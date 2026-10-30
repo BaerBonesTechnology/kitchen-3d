@@ -155,15 +155,6 @@ struct TransformCoordsOrig {
   /** Size & pivot when the drag began, every scale is relative to these. */
   float3 dims;
   float3 pivot;
-  /**
-   * Median edits accumulated since the drag began, in object space.
-   *
-   * A drag can cover the median buttons too (see #multibut_states_tag) and restoring the
-   * coordinates would undo those edits, so fold them into the scale matrix as a translation.
-   * Moving the stored coordinates instead needs the inverse of the scale, which doesn't
-   * exist once a dimension reaches zero.
-   */
-  float3 location_offset = float3(0.0f);
 
   /* For the update in progress. */
 
@@ -1952,9 +1943,6 @@ static void v3d_editvertex_buts(
         dims_mat = median_dims_scale_matrix_calc(
             *ob, bounds_matrix, coords_orig->pivot, coords_orig->dims, dims_new);
         if (dims_mat) {
-          /* Keep median edits made in the same drag, see #TransformCoordsOrig::location_offset. */
-          coords_orig->location_offset += float3(median_basis.generic.location);
-          dims_mat->location() += coords_orig->location_offset;
           coords_orig->coords_index = 0;
         }
       }
@@ -1964,7 +1952,12 @@ static void v3d_editvertex_buts(
     const bool apply_vcos = (tot == 1) || dims_mat.has_value() ||
                             (len_squared_v3(median_basis.generic.location) != 0.0f);
 
-    /* Scaling takes the coordinate from the drag start, the median is folded into `dims_mat`. */
+    /* Scaling takes the coordinate from the drag start.
+     *
+     * NOTE(@ideasman42): dragging location & dimensions together isn't supported,
+     * dimensions take priority and location edits are ignored.
+     * Preventing both being dragged at once is possible, however the buttons are far apart
+     * so this is unlikely in practice and not worth the hassle. */
     auto apply_coord_fn = [&](float co[3]) {
       if (dims_mat) {
         coords_orig->apply(*dims_mat, *reinterpret_cast<float3 *>(co));
@@ -2480,7 +2473,7 @@ static void view3d_panel_vgroup(const bContext *C, Panel *panel)
 /** \name Transform Buttons
  * \{ */
 
-static void v3d_transform_butsR(const bContext *C, ui::Layout &layout, PointerRNA *ptr)
+static void v3d_transform_butsR(ui::Layout &layout, PointerRNA *ptr)
 {
   ui::Layout *split = &layout.split(0.8f, false);
 
@@ -2563,7 +2556,7 @@ static void v3d_transform_butsR(const bContext *C, ui::Layout &layout, PointerRN
 
   ui::Layout &row = layout.row(/*align=*/true);
   row.prop(ptr, "rotation_mode", UI_ITEM_NONE, "", ICON_NONE);
-  row.op_menu_enum(C, "ANIM_OT_rotation_mode_convert", "mode", "", ICON_DOWNARROW_HLT);
+  row.menu("ANIM_MT_rotation_mode_convert", "", ICON_DOWNARROW_HLT);
 
   split = &layout.split(0.8f, false);
   colsub = &split->column(true);
@@ -2575,7 +2568,7 @@ static void v3d_transform_butsR(const bContext *C, ui::Layout &layout, PointerRN
       ptr, "lock_scale", ui::ITEM_R_TOGGLE | ui::ITEM_R_ICON_ONLY, "", ICON_DECORATE_UNLOCKED);
 }
 
-static void v3d_posearmature_buts(const bContext *C, ui::Layout &layout, Object *ob)
+static void v3d_posearmature_buts(ui::Layout &layout, Object *ob)
 {
   bPoseChannel *pchan = BKE_pose_channel_active_if_bonecoll_visible(ob);
 
@@ -2591,7 +2584,7 @@ static void v3d_posearmature_buts(const bContext *C, ui::Layout &layout, Object 
   /* XXX: RNA buts show data in native types (i.e. quaternion, 4-component axis/angle, etc.)
    * but old-school UI shows in eulers always. Do we want to be able to still display in Eulers?
    * Maybe needs RNA/UI options to display rotations as different types. */
-  v3d_transform_butsR(C, col, &pchanptr);
+  v3d_transform_butsR(col, &pchanptr);
 }
 
 static void v3d_editarmature_buts(ui::Layout &layout, Object *ob)
@@ -2741,11 +2734,11 @@ static void view3d_panel_transform(const bContext *C, Panel *panel)
     }
   }
   else if (ob->mode & OB_MODE_POSE) {
-    v3d_posearmature_buts(C, col, ob);
+    v3d_posearmature_buts(col, ob);
   }
   else {
     PointerRNA obptr = RNA_id_pointer_create(&ob->id);
-    v3d_transform_butsR(C, col, &obptr);
+    v3d_transform_butsR(col, &obptr);
 
     /* Dimensions and editmode are mostly the same check. */
     if (OB_TYPE_SUPPORT_EDITMODE(ob->type) || ELEM(ob->type, OB_VOLUME, OB_LIGHTPROBE)) {

@@ -2125,7 +2125,7 @@ void button_tooltip_timer_remove(bContext *C, Button *but);
 
 /**
  * Attempt to activate an button referencing an RNA property in the \a region.
- * \param block_name: targets a block in the \a region, if \a block_name is not set it will test
+ * \param block: targets a block in the \a region, when not passed it will test
  * any block in the \a region.
  * \returns `true` if the button gets activated.
  */
@@ -2573,6 +2573,7 @@ void template_search_preview(Layout *layout,
  * the property sub-type is `PROP_FILEPATH`.
  * \param name: Label text, the property name is used if unset.
  * \param placeholder: the placeholder text to show in the text widget, when empty.
+ * \param split_name: Edit the parent directory and file/directory name in separate text fields.
  */
 void template_filepath(Layout *layout,
                        const bContext *C,
@@ -2581,7 +2582,8 @@ void template_filepath(Layout *layout,
                        const char *pathselect_op,
                        const char *filter_glob,
                        const std::optional<StringRef> name,
-                       const std::optional<StringRef> placeholder);
+                       const std::optional<StringRef> placeholder,
+                       bool split_name = false);
 
 /**
  * This is creating/editing RNA-Paths
@@ -3262,8 +3264,8 @@ enum class ActivationButtonState : int8_t {
 /**
  * Attempt to activate an button referencing an RNA property. If any other button in the screen is
  * active, it will be deactivated.
- * \param state: Activation state for the button. Some states are specific to certain button types;
- * when an incompatible state is provided, the button will be activated with the
+ * \param target_state: Activation state for the button. Some states are specific to certain button
+ * types; when an incompatible state is provided, the button will be activated with the
  * #ActivationButtonState::Highlight state.
  * \param index: Index of the button that references the RNA property.
  * \return The center point of the button in window coordinates when successfully activated.

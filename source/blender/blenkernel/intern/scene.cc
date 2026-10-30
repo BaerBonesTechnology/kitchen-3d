@@ -388,16 +388,6 @@ static void scene_copy_data(Main *bmain,
   scene_dst->runtime = MEM_new<SceneRuntime>(__func__);
 }
 
-static void scene_free_markers(Scene *scene, bool do_id_user)
-{
-  for (TimeMarker &marker : scene->markers.items_mutable()) {
-    if (marker.prop != nullptr) {
-      IDP_FreeProperty_ex(marker.prop, do_id_user);
-    }
-    MEM_delete(&marker);
-  }
-}
-
 static void scene_free_data(ID *id)
 {
   Scene *scene = id_cast<Scene *>(id);
@@ -419,7 +409,7 @@ static void scene_free_data(ID *id)
     BKE_rigidbody_free_world(scene);
   }
 
-  scene_free_markers(scene, do_id_user);
+  BKE_free_time_markers(scene->markers, do_id_user);
   scene->transform_spaces.free_no_destruct();
   scene->r.views.free_no_destruct();
 
@@ -2708,7 +2698,7 @@ static bool check_rendered_viewport_visible(Main *bmain)
     Scene *scene = window.scene;
     RenderEngineType *type = RE_engines_find(scene->r.engine);
 
-    if (type->draw_engine || !type->render) {
+    if ((type->flag & RE_INTERNAL) || !type->render) {
       continue;
     }
 
@@ -2754,6 +2744,16 @@ static void prepare_mesh_for_viewport_render(Main *bmain,
         BM_mesh_bm_to_me(bmain, bm, mesh, &params);
         DEG_id_tag_update(&mesh->id, 0);
       }
+    }
+  }
+
+  /* Same for the dynamic topology sculpt BMesh. */
+  Object *ob_sculpt = BKE_view_layer_active_object_get(view_layer);
+  if (ob_sculpt && (ob_sculpt->mode & OB_MODE_SCULPT) && ob_sculpt->runtime->sculpt_session &&
+      ob_sculpt->runtime->sculpt_session->bm && (ob_sculpt->id.recalc & ID_RECALC_GEOMETRY))
+  {
+    if (check_rendered_viewport_visible(bmain)) {
+      BKE_sculptsession_bm_to_me(ob_sculpt);
     }
   }
 }
