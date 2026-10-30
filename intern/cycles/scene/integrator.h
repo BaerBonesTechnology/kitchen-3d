@@ -40,6 +40,8 @@ class Integrator : public Node {
  public:
   NODE_DECLARE
 
+  NODE_SOCKET_API(bool, use_persistent_lighting)
+
   NODE_SOCKET_API(int, min_bounce)
   NODE_SOCKET_API(int, max_bounce)
 

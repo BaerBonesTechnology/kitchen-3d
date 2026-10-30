@@ -1020,5 +1020,7 @@ void *blender::CCL_python_module_init()
   PyModule_AddObjectRef(mod, "with_debug", Py_False);
 #endif /* WITH_CYCLES_DEBUG */
 
+  PyModule_AddIntConstant(mod, "kitchen3d_persistent_cache_version", 1);
+
   return (void *)mod;
 }

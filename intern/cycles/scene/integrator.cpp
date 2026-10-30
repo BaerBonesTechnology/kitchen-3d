@@ -120,6 +120,7 @@ NODE_DEFINE(Integrator)
   SOCKET_BOOLEAN(caustics_refractive, "Refractive Caustics", true);
   SOCKET_FLOAT(filter_glossy, "Filter Glossy", 1.0f);
 
+  SOCKET_BOOLEAN(use_persistent_lighting, "Persistent Lighting", false);
   SOCKET_BOOLEAN(use_direct_light, "Use Direct Light", true);
   SOCKET_BOOLEAN(use_indirect_light, "Use Indirect Light", true);
   SOCKET_BOOLEAN(use_diffuse, "Use Diffuse", true);
@@ -219,6 +220,8 @@ void Integrator::device_update(Device *device, DeviceScene *dscene, Scene *scene
   KernelIntegrator *kintegrator = &dscene->data.integrator;
 
   device_free(device, dscene);
+
+  kintegrator->use_persistent_lighting = use_persistent_lighting;
 
   /* integrator parameters */
 

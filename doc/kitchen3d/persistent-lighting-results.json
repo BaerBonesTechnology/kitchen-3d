@@ -1,0 +1,538 @@
+{
+  "environment": {
+    "blender": "5.3.0 Beta",
+    "binary": "/Applications/Kitchen 3D.app/Contents/MacOS/Kitchen 3D",
+    "build_hash": "4e6bc6dbbbb5",
+    "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "device": "CPU / Python / mathutils BVH"
+  },
+  "configuration": {
+    "width": 64,
+    "height": 64,
+    "connections_per_patch": 64,
+    "reference_samples_per_pixel": 256,
+    "diffuse_indirect_bounces": 1
+  },
+  "warmup": {
+    "frame_ms": 164.39108294434845,
+    "sync_ms": 6.470916094258428,
+    "update_ms": 153.06283393874764,
+    "camera_ms": 4.85629215836525,
+    "lighting_rays": 48600,
+    "camera_rays": 4096,
+    "invalidated": 756,
+    "pending": 0,
+    "missing_pixels": 0
+  },
+  "orbit_frames": [
+    {
+      "orbit_index": 0,
+      "reuse": {
+        "frame_ms": 22.58933405391872,
+        "sync_ms": 17.37991697154939,
+        "update_ms": 0.0008749775588512421,
+        "camera_ms": 5.206792149692774,
+        "lighting_rays": 0,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "rebuild": {
+        "frame_ms": 133.0374579411,
+        "sync_ms": 6.162625038996339,
+        "update_ms": 121.75616715103388,
+        "camera_ms": 5.116917192935944,
+        "lighting_rays": 48600,
+        "camera_rays": 4096,
+        "invalidated": 756,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "reuse_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      }
+    },
+    {
+      "orbit_index": 1,
+      "reuse": {
+        "frame_ms": 10.592957958579063,
+        "sync_ms": 5.552832968533039,
+        "update_ms": 0.000833999365568161,
+        "camera_ms": 5.038625095039606,
+        "lighting_rays": 0,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "rebuild": {
+        "frame_ms": 132.77887483127415,
+        "sync_ms": 6.163083016872406,
+        "update_ms": 121.58983293920755,
+        "camera_ms": 5.024333018809557,
+        "lighting_rays": 48600,
+        "camera_rays": 4096,
+        "invalidated": 756,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "reuse_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      }
+    },
+    {
+      "orbit_index": 2,
+      "reuse": {
+        "frame_ms": 10.269917082041502,
+        "sync_ms": 5.288958083838224,
+        "update_ms": 0.0006670597940683365,
+        "camera_ms": 4.979332908987999,
+        "lighting_rays": 0,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "rebuild": {
+        "frame_ms": 147.82341592945158,
+        "sync_ms": 21.275040926411748,
+        "update_ms": 121.42445798963308,
+        "camera_ms": 5.1222918555140495,
+        "lighting_rays": 48600,
+        "camera_rays": 4096,
+        "invalidated": 756,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "reuse_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      }
+    },
+    {
+      "orbit_index": 3,
+      "reuse": {
+        "frame_ms": 10.221417061984539,
+        "sync_ms": 5.456292070448399,
+        "update_ms": 0.000541098415851593,
+        "camera_ms": 4.763707984238863,
+        "lighting_rays": 0,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "rebuild": {
+        "frame_ms": 130.25075010955334,
+        "sync_ms": 6.430125096812844,
+        "update_ms": 119.20095910318196,
+        "camera_ms": 4.6185830142349005,
+        "lighting_rays": 48600,
+        "camera_rays": 4096,
+        "invalidated": 756,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "reuse_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      }
+    },
+    {
+      "orbit_index": 4,
+      "reuse": {
+        "frame_ms": 10.611375095322728,
+        "sync_ms": 5.4322499781847,
+        "update_ms": 0.0006249174475669861,
+        "camera_ms": 5.177667131647468,
+        "lighting_rays": 0,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "rebuild": {
+        "frame_ms": 144.48474999517202,
+        "sync_ms": 5.959667032584548,
+        "update_ms": 133.61158315092325,
+        "camera_ms": 4.91224997676909,
+        "lighting_rays": 48600,
+        "camera_rays": 4096,
+        "invalidated": 756,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "reuse_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      }
+    },
+    {
+      "orbit_index": 5,
+      "reuse": {
+        "frame_ms": 10.577125009149313,
+        "sync_ms": 5.507707828655839,
+        "update_ms": 0.0007499475032091141,
+        "camera_ms": 5.067708902060986,
+        "lighting_rays": 0,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "rebuild": {
+        "frame_ms": 132.2951668407768,
+        "sync_ms": 6.0331248678267,
+        "update_ms": 121.31916591897607,
+        "camera_ms": 4.941709106788039,
+        "lighting_rays": 48600,
+        "camera_rays": 4096,
+        "invalidated": 756,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "reuse_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      }
+    },
+    {
+      "orbit_index": 6,
+      "reuse": {
+        "frame_ms": 10.140249971300364,
+        "sync_ms": 5.188249982893467,
+        "update_ms": 0.0005830079317092896,
+        "camera_ms": 4.950458183884621,
+        "lighting_rays": 0,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "rebuild": {
+        "frame_ms": 146.83504193089902,
+        "sync_ms": 7.110083010047674,
+        "update_ms": 134.58483293652534,
+        "camera_ms": 5.138709209859371,
+        "lighting_rays": 48600,
+        "camera_rays": 4096,
+        "invalidated": 756,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "reuse_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      }
+    },
+    {
+      "orbit_index": 7,
+      "reuse": {
+        "frame_ms": 10.834834072738886,
+        "sync_ms": 5.786667112261057,
+        "update_ms": 0.000500120222568512,
+        "camera_ms": 5.0461250357329845,
+        "lighting_rays": 0,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "rebuild": {
+        "frame_ms": 132.60999997146428,
+        "sync_ms": 6.520832888782024,
+        "update_ms": 121.223249938339,
+        "camera_ms": 4.864333895966411,
+        "lighting_rays": 48600,
+        "camera_rays": 4096,
+        "invalidated": 756,
+        "pending": 0,
+        "missing_pixels": 0
+      },
+      "reuse_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      }
+    }
+  ],
+  "mutations": [
+    {
+      "name": "light_move",
+      "initial_dirty_patches": 756,
+      "invalidation_ms": 5.636624991893768,
+      "total_patches": 756,
+      "max_patch_error_vs_rebuild": 0.0,
+      "total_lighting_update_rays": 234,
+      "changed_connection_lists": 0,
+      "image_error_vs_reference_128spp": {
+        "rmse_linear_rgb": 0.07363840597972081,
+        "relative_rmse": 0.15607844567521678,
+        "max_abs_linear_rgb": 1.1182053089141846
+      },
+      "image_error_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      },
+      "completion_frame": {
+        "frame_ms": 16.933541977778077,
+        "sync_ms": 5.045208847150207,
+        "update_ms": 6.992708193138242,
+        "camera_ms": 4.89487498998642,
+        "lighting_rays": 234,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      }
+    },
+    {
+      "name": "blocker_into_paths",
+      "initial_dirty_patches": 319,
+      "invalidation_ms": 31.477208016440272,
+      "total_patches": 756,
+      "max_patch_error_vs_rebuild": 0.0,
+      "total_lighting_update_rays": 20609,
+      "changed_connection_lists": 290,
+      "image_error_vs_reference_128spp": {
+        "rmse_linear_rgb": 0.07370875454745107,
+        "relative_rmse": 0.15764600699085218,
+        "max_abs_linear_rgb": 1.1182053089141846
+      },
+      "image_error_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      },
+      "completion_frame": {
+        "frame_ms": 64.87704091705382,
+        "sync_ms": 5.467040929943323,
+        "update_ms": 54.353666957467794,
+        "camera_ms": 5.055292043834925,
+        "lighting_rays": 20479,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      }
+    },
+    {
+      "name": "blocker_out_of_paths",
+      "initial_dirty_patches": 319,
+      "invalidation_ms": 30.94500000588596,
+      "total_patches": 756,
+      "max_patch_error_vs_rebuild": 0.0,
+      "total_lighting_update_rays": 20627,
+      "changed_connection_lists": 290,
+      "image_error_vs_reference_128spp": {
+        "rmse_linear_rgb": 0.07363840597972081,
+        "relative_rmse": 0.15607844567521678,
+        "max_abs_linear_rgb": 1.1182053089141846
+      },
+      "image_error_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      },
+      "completion_frame": {
+        "frame_ms": 67.36070802435279,
+        "sync_ms": 5.270041991025209,
+        "update_ms": 56.748917093500495,
+        "camera_ms": 5.33920805901289,
+        "lighting_rays": 20497,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      }
+    },
+    {
+      "name": "material_change",
+      "initial_dirty_patches": 108,
+      "invalidation_ms": 5.9733339585363865,
+      "total_patches": 756,
+      "max_patch_error_vs_rebuild": 0.0,
+      "total_lighting_update_rays": 54,
+      "changed_connection_lists": 0,
+      "image_error_vs_reference_128spp": {
+        "rmse_linear_rgb": 0.07384317150186138,
+        "relative_rmse": 0.15639742873104026,
+        "max_abs_linear_rgb": 1.1182053089141846
+      },
+      "image_error_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      },
+      "completion_frame": {
+        "frame_ms": 14.94408305734396,
+        "sync_ms": 5.056207999587059,
+        "update_ms": 4.655624972656369,
+        "camera_ms": 5.231166956946254,
+        "lighting_rays": 54,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      }
+    },
+    {
+      "name": "deformation",
+      "initial_dirty_patches": 41,
+      "invalidation_ms": 43.80737501196563,
+      "total_patches": 756,
+      "max_patch_error_vs_rebuild": 0.0,
+      "total_lighting_update_rays": 2640,
+      "changed_connection_lists": 10,
+      "image_error_vs_reference_128spp": {
+        "rmse_linear_rgb": 0.07384301941930589,
+        "relative_rmse": 0.15639713624067256,
+        "max_abs_linear_rgb": 1.1182053089141846
+      },
+      "image_error_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      },
+      "completion_frame": {
+        "frame_ms": 21.166416816413403,
+        "sync_ms": 5.067499820142984,
+        "update_ms": 10.740000056102872,
+        "camera_ms": 5.358249880373478,
+        "lighting_rays": 2510,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      }
+    },
+    {
+      "name": "topology_change",
+      "initial_dirty_patches": 546,
+      "invalidation_ms": 42.02354117296636,
+      "total_patches": 1080,
+      "max_patch_error_vs_rebuild": 0.0,
+      "total_lighting_update_rays": 35220,
+      "changed_connection_lists": 544,
+      "image_error_vs_reference_128spp": {
+        "rmse_linear_rgb": 0.07265147916189585,
+        "relative_rmse": 0.15387349236153722,
+        "max_abs_linear_rgb": 1.1182053089141846
+      },
+      "image_error_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      },
+      "completion_frame": {
+        "frame_ms": 112.10783291608095,
+        "sync_ms": 7.984125055372715,
+        "update_ms": 99.11266597919166,
+        "camera_ms": 5.009999964386225,
+        "lighting_rays": 35090,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      }
+    },
+    {
+      "name": "object_add",
+      "initial_dirty_patches": 142,
+      "invalidation_ms": 60.53354195319116,
+      "total_patches": 1092,
+      "max_patch_error_vs_rebuild": 0.0,
+      "total_lighting_update_rays": 9206,
+      "changed_connection_lists": 139,
+      "image_error_vs_reference_128spp": {
+        "rmse_linear_rgb": 0.07427597802401259,
+        "relative_rmse": 0.15578825860186613,
+        "max_abs_linear_rgb": 1.1182053089141846
+      },
+      "image_error_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      },
+      "completion_frame": {
+        "frame_ms": 45.52708403207362,
+        "sync_ms": 7.395208813250065,
+        "update_ms": 33.24358304962516,
+        "camera_ms": 4.887457937002182,
+        "lighting_rays": 9076,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      }
+    },
+    {
+      "name": "object_delete",
+      "initial_dirty_patches": 116,
+      "invalidation_ms": 54.93108415976167,
+      "total_patches": 660,
+      "max_patch_error_vs_rebuild": 0.0,
+      "total_lighting_update_rays": 7483,
+      "changed_connection_lists": 116,
+      "image_error_vs_reference_128spp": {
+        "rmse_linear_rgb": 0.07370839496729337,
+        "relative_rmse": 0.1550207475300935,
+        "max_abs_linear_rgb": 1.1182053089141846
+      },
+      "image_error_vs_rebuild": {
+        "rmse_linear_rgb": 0.0,
+        "relative_rmse": 0.0,
+        "max_abs_linear_rgb": 0.0
+      },
+      "completion_frame": {
+        "frame_ms": 30.60883400030434,
+        "sync_ms": 4.461708944290876,
+        "update_ms": 21.089249989017844,
+        "camera_ms": 5.057290894910693,
+        "lighting_rays": 7353,
+        "camera_rays": 4096,
+        "invalidated": 0,
+        "pending": 0,
+        "missing_pixels": 0
+      }
+    }
+  ],
+  "reference": {
+    "time_ms": 1378.1696250662208,
+    "combined_and_indirect_reference_rays": 3103480,
+    "indirect_cached_vs_reference_1024spp": {
+      "rmse_linear_rgb": 0.00622597586603429,
+      "relative_rmse": 0.24920141749418823,
+      "max_abs_linear_rgb": 0.1012040376663208
+    },
+    "cached_vs_reference": {
+      "rmse_linear_rgb": 0.057476192088183546,
+      "relative_rmse": 0.17405805280870995,
+      "max_abs_linear_rgb": 0.741840660572052
+    },
+    "description": "Independent uncached one-bounce CPU path estimator; finite-sample reference"
+  },
+  "memory_after_mutations": {
+    "patches": 660,
+    "logical_packed_payload_bytes": 1108320,
+    "python_traced_current_bytes": 15516588,
+    "python_traced_peak_bytes": 15518956,
+    "excludes": "BVH/native allocations, interpreter, images; not GPU VRAM"
+  },
+  "summary": {
+    "reuse_median_ms": 10.585041483864188,
+    "rebuild_median_ms": 132.90816638618708
+  }
+}

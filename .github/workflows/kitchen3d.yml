@@ -259,7 +259,9 @@ jobs:
 
           Windows: download Kitchen3D-windows-x64-setup.exe for the installation wizard, shortcuts and uninstaller, or use the portable ZIP. macOS Apple Silicon: download the ZIP. Linux x64 (Ubuntu 24.04 or compatible): download the tar.xz. Extract portable archives before launching. These builds are unsigned and not notarized.
 
-          All three platforms passed the six Kitchen 3D background regression suites and an installed-runtime, Cycles CPU render, and save/reopen smoke test. GUI tests and the full upstream test suite are not run by this workflow. Windows includes CUDA/OptiX kernels; actual GPU rendering depends on compatible NVIDIA hardware and drivers. Linux Cycles is CPU-only; macOS retains Metal.
+          All three platforms passed the eight Kitchen 3D background regression suites and an installed-runtime, Cycles CPU render, and save/reopen smoke test. GUI tests and the full upstream test suite are not run by this workflow. Windows includes CUDA/OptiX kernels; actual GPU rendering depends on compatible NVIDIA hardware and drivers. Linux Cycles is CPU-only; macOS retains Metal.
+
+          This preview includes the opt-in Kitchen 3D Persistent Cycles experimental renderer and binary .REND lighting caches. It supports CPU rendering of restricted diffuse scenes via F12; GPU rendering and a live rendered viewport are not supported by this experiment. In the Python Console, run import kitchen3d_lighting; kitchen3d_lighting.register() before opening an experimental-engine project. See https://github.com/BaerBonesTechnology/kitchen-3d/blob/$REVISION/doc/kitchen3d/rend-cache.md for preparation, limitations and measured results. Keep the .REND sidecar with its .blend project.
 
           Windows Setup also passed installation, shortcut-target, upgrade, installed-runtime and uninstall checks. It installs for the current user and preserves user-owned files when uninstalling.
 

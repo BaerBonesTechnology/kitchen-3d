@@ -918,6 +918,23 @@ static void create_mesh(Scene *scene,
   attr_create_random_per_island(scene, mesh, b_mesh, subdivision);
   attr_create_generic(scene, mesh, b_mesh, subdivision, need_motion, motion_scale);
 
+  /* The Python engine validates scene identity before rendering. Cache values are
+   * constant per Blender face and expanded to the corresponding Cycles triangles.
+   * Missing attributes fall back to ordinary path tracing. */
+  if (!subdivision && mesh->need_attribute(scene, ATTR_STD_KITCHEN3D_RADIANCE)) {
+    const auto cached = b_attributes.lookup<blender::float3>(
+        ".kitchen3d_radiance", blender::bke::AttrDomain::Face);
+    if (cached) {
+      Attribute *attr = mesh->attributes.add(ATTR_STD_KITCHEN3D_RADIANCE);
+      packed_float3 *values = attr->data_for_write<packed_float3>();
+      const blender::Span<int> triangle_faces = b_mesh.corner_tri_faces();
+      for (const int i : triangle_faces.index_range()) {
+        const blender::float3 value = cached.varray[triangle_faces[i]];
+        values[i] = make_float3(value.x, value.y, value.z);
+      }
+    }
+  }
+
   if (subdivision) {
     attr_create_subd_uv_map(scene, mesh, b_mesh, blender_uv_names);
   }

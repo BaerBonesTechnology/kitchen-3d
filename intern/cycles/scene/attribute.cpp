@@ -530,6 +530,8 @@ const char *Attribute::standard_name(AttributeStandard std)
       return "pointiness";
     case ATTR_STD_RANDOM_PER_ISLAND:
       return "random_per_island";
+    case ATTR_STD_KITCHEN3D_RADIANCE:
+      return ".kitchen3d_radiance";
     case ATTR_STD_SHADOW_TRANSPARENCY:
       return "shadow_transparency";
     case ATTR_STD_GSPLAT_RADIANCE_BASE:
@@ -766,6 +768,10 @@ static bool standard_type_element(const Geometry *geometry,
 {
   if (geometry->is_mesh()) {
     switch (std) {
+      case ATTR_STD_KITCHEN3D_RADIANCE:
+        type = TypeColor;
+        element = ATTR_ELEMENT_FACE;
+        return true;
       case ATTR_STD_POSITION:
       case ATTR_STD_GENERATED:
       case ATTR_STD_POSITION_UNDEFORMED:

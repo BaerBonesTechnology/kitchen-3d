@@ -781,6 +781,26 @@ ccl_device int integrate_surface(KernelGlobals kg,
   const PathRayVisibility path_visibility = INTEGRATOR_STATE(state, path, visibility);
   const uint32_t path_flag = INTEGRATOR_STATE(state, path, flag);
 
+  /* A cache hit replaces the remaining diffuse path, not camera visibility or
+   * glossy shading. The cached value already contains reflected radiance, so
+   * applying the hit surface BSDF or light MIS again would double count it.
+   * Cache misses and invalid values retain the normal Cycles path. */
+  if (kernel_data.integrator.use_persistent_lighting &&
+      (path_visibility & PATH_RAY_VISIBILITY_DIFFUSE) &&
+      !(path_visibility & PATH_RAY_VISIBILITY_TRANSMIT) &&
+      !(path_flag & PATH_RAY_SUBSURFACE) && sd.type == PRIMITIVE_TRIANGLE &&
+      !(sd.runtime_flag & SR_BACKFACING))
+  {
+    const AttributeDescriptor desc = find_attribute(kg, &sd, ATTR_STD_KITCHEN3D_RADIANCE);
+    if (desc.offset != ATTR_STD_NOT_FOUND) {
+      const float3 radiance = primitive_surface_attribute<float3>(kg, &sd, desc);
+      if (isfinite_safe(radiance) && radiance.x >= 0.0f && radiance.y >= 0.0f && radiance.z >= 0.0f) {
+        film_write_surface_emission(kg, state, rgb_to_spectrum(radiance), 1.0f, render_buffer);
+        return LABEL_NONE;
+      }
+    }
+  }
+
   /* Skip most work for volume bounding surface. */
 #ifdef __VOLUME__
   if (!(sd.shader_flag & SD_HAS_ONLY_VOLUME)) {

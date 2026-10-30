@@ -454,6 +454,9 @@ float Scene::motion_shutter_time()
 
 bool Scene::need_global_attribute(AttributeStandard std) const
 {
+  if (std == ATTR_STD_KITCHEN3D_RADIANCE) {
+    return integrator->get_use_persistent_lighting();
+  }
   if (std == ATTR_STD_UV) {
     return Pass::contains(passes, PASS_UV);
   }

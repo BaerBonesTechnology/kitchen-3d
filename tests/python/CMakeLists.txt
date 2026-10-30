@@ -2006,7 +2006,7 @@ endif()
 
 # Native Kitchen 3D workflows: run the installed app with isolated preferences.
 if(TEST_PYTHON_EXE)
-  foreach(_kitchen_test IN ITEMS kitchen3d_regression blaya_circular blaya_loop_tools blaya_animation_pose kitchen3d_gltf_instancing kitchen3d_render_benchmark)
+  foreach(_kitchen_test IN ITEMS kitchen3d_regression blaya_circular blaya_loop_tools blaya_animation_pose kitchen3d_gltf_instancing kitchen3d_render_benchmark kitchen3d_persistent_lighting kitchen3d_rend_cache)
     add_test(NAME ${_kitchen_test}
       COMMAND "${TEST_PYTHON_EXE}" "${TEST_PYTHON_DIR}/run_kitchen3d_test.py"
         --blender "${TEST_BLENDER_EXE}"

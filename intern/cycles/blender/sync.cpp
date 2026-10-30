@@ -362,6 +362,8 @@ void BlenderSync::sync_integrator(blender::ViewLayer &b_view_layer,
   use_adaptive_subdivision = !b_bake_target;
 
   Integrator *integrator = scene->integrator;
+  integrator->set_use_persistent_lighting(
+      std::string_view(b_scene->r.engine) == "KITCHEN3D_CYCLES_PERSISTENT");
 
   integrator->set_min_bounce(get_int(cscene, "min_light_bounces"));
   integrator->set_max_bounce(get_int(cscene, "max_bounces"));

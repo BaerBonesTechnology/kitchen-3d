@@ -1,0 +1,33 @@
+{
+  "file_bytes": 2546381,
+  "patches": 756,
+  "write_ms": 49.80774992145598,
+  "read_ms_including_bvh": 135.15958399511874,
+  "reload_lighting_rays": 0,
+  "native_tested": true,
+  "native_render": {
+    "cycles": 40.00304196961224,
+    "persistent_cycles": 36.73808416351676,
+    "rmse_rgba_vs_cycles": 0.006775523091859535,
+    "warm_camera_rerenders_ms": {
+      "cycles": [
+        19.296250073239207,
+        8.61300015822053,
+        14.319667126983404,
+        8.939167018979788
+      ],
+      "persistent_cycles": [
+        21.529250079765916,
+        18.224208150058985,
+        24.10174999386072,
+        17.444041091948748
+      ]
+    },
+    "warm_medians_ms": {
+      "cycles": 11.629417072981596,
+      "persistent_cycles": 19.87672911491245
+    }
+  },
+  "binary": "/Users/jamiewill/Documents/Projects/build_kitchen3d_5.3/bin/Kitchen 3D.app/Contents/MacOS/Kitchen 3D",
+  "build_hash": "8094970a21d5"
+}
